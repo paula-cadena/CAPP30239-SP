@@ -1,2 +1,2 @@
-*.csv
+data/old/*.csv
 .DS_Store
