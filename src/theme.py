@@ -1,12 +1,13 @@
 import altair as alt
 
 def custom_theme():
+
     return {
         "config": {
             "title": {
                 "fontSize": 16,           # Size of plot titles
                 "font": "Helvetica",      # Font for titles
-                "anchor": "start",        # Align title to the start of the chart
+                "anchor": "start",        # Align title to the start
                 "color": "#333333"        # Title color
             },
             "axis": {
@@ -28,12 +29,16 @@ def custom_theme():
                 "height": 400             # Default chart height
             },
             "range": {
-                "category": ["#742183","#166417","#f8c7cc","#edae49","#81a684","#113447","#AACEBE","#c6e2e9","#2c8c99","#73eedc"],
+                "category": ["#742183", "#166417", "#f8c7cc", "#edae49",
+                             "#81a684", "#113447", "#AACEBE", "#c6e2e9",
+                             "#2c8c99", "#73eedc"],
                 "diverging": {"scheme": "purplegreen"},
-                "heatmap":{"scheme":"purplegreen"},
-                "ordinal":["#166417", "#742183"]
+                "heatmap": {"scheme": "purplegreen"},
+                "ordinal": ["#166417", "#742183"]
             }
         }
+
+
     }
 
 alt.themes.register("custom_theme", custom_theme)
