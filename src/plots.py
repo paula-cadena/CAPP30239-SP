@@ -46,7 +46,7 @@ def world_map(series):
                 scale=alt.Scale(
                     domain=[min_value, 0, max_value]
                 ),
-                legend=alt.Legend()
+                legend=alt.Legend(title="Percentage")
             ),
             tooltip=[
                 alt.Tooltip('Country:N', title='Country'),
@@ -59,7 +59,7 @@ def world_map(series):
             from_=alt.LookupData(first_data, 'country-code',
                                  ['Value', 'Country', 'Year'])
         )
-    ).properties(title='First Available Year by Country').project('equalEarth')
+    ).properties(title='1960').project('equalEarth')
 
     # Second map layer for last year available data
     last_map = (
@@ -72,7 +72,7 @@ def world_map(series):
                 scale=alt.Scale(
                     domain=[min_value, 0, max_value]
                 ),
-                legend=alt.Legend()
+                legend=alt.Legend(title="Percentage")
             ),
             tooltip=[
                 alt.Tooltip('Country:N', title='Country'),
@@ -85,7 +85,7 @@ def world_map(series):
             from_=alt.LookupData(last_data, 'country-code',
                                  ['Value', 'Country', 'Year'])
         )
-    ).properties(title='Last Available Year by Country').project('equalEarth')
+    ).properties(title='2023').project('equalEarth')
 
     final_map = alt.vconcat(
         first_map,
@@ -110,7 +110,7 @@ def heat_map_series(series):
     heat_map = alt.Chart(pivot_data).mark_rect().encode(
         alt.X('Year:Q').bin(maxbins=62),
         alt.Y(series, title='% Population').bin(maxbins=40),
-        alt.Color('count():Q', title='Count')
+        alt.Color('count():Q', title='Number of Countries')
         ).properties(
         title=f'{series}'
     )
@@ -163,9 +163,11 @@ def bars_twoyears(series, year):
 
     # Update the x-axis scale for both charts
     initial_year = initial_year.encode(
-        x=alt.X('Value:Q', scale=alt.Scale(domain=[min_value, max_value])))
+        x=alt.X('Value:Q', scale=alt.Scale(domain=[min_value, max_value]), 
+                title ="Net migrants"))
     year_before = year_before.encode(
-        x=alt.X('Value:Q', scale=alt.Scale(domain=[min_value, max_value])))
+        x=alt.X('Value:Q', scale=alt.Scale(domain=[min_value, max_value]), 
+                title ="Net migrants"))
 
     # Concatenate both charts
     final_chart = alt.vconcat(
@@ -234,7 +236,7 @@ def area_pop(series1, series2):
             x="Year:T",
             y=alt.Y("Value:Q", stack="normalize",
                     title='Percentage of total population'),
-            color="Series:O"
+            color =alt.Color("Series:O", title='Population type')
         ).properties(title=f'{series1} vs {series2}: Worldwide')
     return area
 
@@ -317,7 +319,7 @@ def double_axis(series1, series2, plot_title):
 
 # Saving the plots
 
-os.chdir('/Users/paulacadena/CAPP30239-SP/static-final/')
+os.chdir('/Users/paulacadena/Git-Hub/data-viz/CAPP30239-SP/static-final/')
 
 world_map('Population growth (annual %)').save('map.svg')
 heat_map_series('Literacy rate, adult total (% of people ages 15 and above)'

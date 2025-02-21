@@ -4,7 +4,7 @@ import numpy as np
 
 def join_datasets():
 
-    folder_path = '/Users/paulacadena/CAPP30239-SP/data'
+    folder_path = '/Users/paulacadena/Git-Hub/data-viz/CAPP30239-SP/data'
     dataframes = []
 
     for filename in os.listdir(folder_path):
@@ -51,7 +51,7 @@ def wide_long_wb():
     return long_format
 
 def add_continents(df):
-    continents = pd.read_csv('/Users/paulacadena/CAPP30239-SP/data/old/continents2.csv',
+    continents = pd.read_csv('/Users/paulacadena/Git-Hub/data-viz/CAPP30239-SP/data/old/continents2.csv',
                              usecols=['alpha-3', 'region',
                                       'sub-region', 'country-code'])
     df = df.merge(continents, left_on='Country Code', right_on='alpha-3',
