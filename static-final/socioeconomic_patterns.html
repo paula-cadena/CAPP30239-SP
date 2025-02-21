@@ -56,22 +56,22 @@
             <div class="viz-card">
                 <h4>Formal Employment by Gender</h4>
                 <img src="scatter_wage.svg" alt="Wage Employment Scatterplot" style="cursor: pointer">
-                <p class="caption">Fig 5. Comparison of formal sector employment rates</p>
+                <p class="caption">Fig 4. Comparison of formal sector employment rates</p>
             </div>
             <div class="viz-card">
                 <h4>Literacy Rate Distribution</h4>
                 <img src="heat_hist.svg" alt="Literacy Rate Heatmap" style="cursor: pointer">
-                <p class="caption">Fig 3. Historical distribution of adult literacy rates across nations</p>
+                <p class="caption">Fig 5. Historical distribution of adult literacy rates across nations</p>
             </div>
         </div>
         <div class="grid-2col">
             <div class="viz-card">
                 <h4>Gender Parity in Labor Force</h4>
                 <img src="lines.svg" alt="Gender Labor Force Ratio" style="cursor: pointer">
-                <p class="caption">Fig 4. Female-to-male participation ratio by subregion</p>
+                <p class="caption">Fig 6. Female-to-male participation ratio by subregion</p>
             </div>
             <div class="context-text">
-                <p>Educational access remains uneven, with Fig 3 showing persistent literacy gaps in conflict-affected regions. Gender disparities in formal employment (Fig 5) reveal structural barriers - while Latin America approaches parity, South Asia shows a 35% gap. The labor force ratio trends (Fig 4) demonstrate how economic development initially widens then narrows gender gaps, with Nordic countries leading in female participation.</p>
+                <p>Educational access remains uneven, with Fig 5 showing persistent literacy gaps in conflict-affected regions. Gender disparities in formal employment (Fig 6) reveal structural barriers - while Latin America approaches parity, South Asia shows a 35% gap. The labor force ratio trends (Fig 4) demonstrate how economic development initially widens then narrows gender gaps, with Nordic countries leading in female participation.</p>
             </div>
         </div>
     </section>
@@ -83,18 +83,26 @@
             <div class="viz-card">
                 <h4>Education vs Economic Output</h4>
                 <img src="double.svg" alt="Education vs GDP Dual Axis" style="cursor: pointer">
-                <p class="caption">Fig 6. Secondary education completion vs GDP per capita</p>
+                <p class="caption">Fig 7. Secondary education completion vs GDP per capita</p>
             </div>
             <div class="viz-card">
                 <h4>Youth Engagement Patterns</h4>
                 <img src="scatter_youth.svg" alt="Youth NEET Scatterplot" style="cursor: pointer">
-                <p class="caption">Fig 7. Youth not in education, employment or training</p>
+                <p class="caption">Fig 8. Youth not in education, employment or training</p>
             </div>
         </div>
         <div class="context-text">
-            <p>The education-GDP relationship (Fig 6) shows a development threshold: below $10,000 GDP/capita, education gains drive economic growth, while above this level, innovation ecosystems become crucial. Youth disengagement (Fig 7) exposes the "NEET" crisis, particularly acute in Mediterranean Europe and MENA regions where 30% of young women are neither working nor studying.</p>
+            <p>The education-GDP relationship (Fig 7) shows a development threshold: below $10,000 GDP/capita, education gains drive economic growth, while above this level, innovation ecosystems become crucial. Youth disengagement (Fig 8) exposes the "NEET" crisis, particularly acute in Mediterranean Europe and MENA regions where 30% of young women are neither working nor studying.</p>
         </div>
     </section>
+
+    <!-- Lightbox Modal HTML -->
+    <div id="lightboxModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="modalCaption" class="modal-caption"></div>
+    </div>
+
     <script>
         // Lightbox functionality
         document.querySelectorAll('.viz-card img').forEach(img => {
@@ -118,13 +126,6 @@
                 document.getElementById("lightboxModal").style.display = "none";
             }
         }
-        </script>
-        
-        <!-- Lightbox Modal HTML -->
-        <div id="lightboxModal" class="modal">
-            <span class="close">&times;</span>
-            <img class="modal-content" id="modalImage">
-            <div id="modalCaption" class="modal-caption"></div>
-        </div>
+    </script>
 </body>
 </html>
